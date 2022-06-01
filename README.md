@@ -1,20 +1,26 @@
 # OverwatchFirewall
-This batch script uses the Firewall-Manager PowerShell module to import the rules required to block all connections to the defined IP addresses in the JSON
+This repository contains a batch script which is meant to provide an easily accessible way for users to switch servers in Overwatch, using the Windows Firewall to block all in and outbound traffic to the European and Bahrain Overwatch servers of which the IP-Addresses are defined in OverwatchFirewall.bat
 
-## Instructions
+## Installation
 - Download the files from here: https://github.com/Lyceris-chan/OverwatchFirewall/archive/refs/heads/main.zip
-- Extract the files into a folder
-- Run the OverwatchFirewall.bat script as ADMIN
-
-## Issues
-- There shouldn't be any unless Blizzard changes their server IP's in that case please use (control + shift + n) in game and provide the IP address mentioned in a github issue so I can update the rules.
-- If you are partied with an EU player and they do not have the EU servers blocked it will put you in an EU server still - Playing with an NA person does not have this issue of course (unless an NA person gets put into an EU lobby) - if this happens somehow just disable the rules quickly and you're good to go.
+- Extract OverwatchFirewall.bat into a folder
+- Run the OverwatchFirewall.bat script as **Admin**
 
 ## Optional configuration
-OverwatchFirewallConfigurator.bat: this script allows you to enable, disable and remove the firewall rules added by OverwatchFirewall.bat
+- Run the OverwatchFirewall.bat script as **Admin**
+- Select your desired option by entering one of the following options:
+> - install: installs the required firewall rules blocking in/outbound connections to the defined IP-addresses
+> - enable: re-enables the firewall rules if they were previously disabled
+> - disable: disables the firewall rules if they were previously enabled
+> - remove: removes the required firewall rules blocking in/outbound connections to the defined IP-addresses
+
+Note: The install command will also update the existing OverwatchFirewall rules with the ones defined in the script, keep in mind that you will have to make sure the script is updated yourself.
 
 ## Credits
 Thanks to @A10Nerd on twitter for the IP addresses
 
-## Last update:
-30/05/2022
+## Last update / Changelog:
+- 30/05/2022: Initial creation
+- 01/06/2022: Switch to netsh advfirewall instead of using a third party PowerShell module
+- 01/06/2022: Merge OverwatchFirewallConfigurator and OverwatchFirewall into a single script
+- 01/06/2022: Rewrote the README
